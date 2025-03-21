@@ -6,7 +6,7 @@
 /*   By: saskin <saskin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 18:57:49 by saskin            #+#    #+#             */
-/*   Updated: 2025/03/21 16:32:05 by saskin           ###   ########.fr       */
+/*   Updated: 2025/03/21 19:30:57 by saskin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	syntax_error(char *s)
 
 int	duplicate_error(char **argv, int i)
 {
-	int			j;
+	int		j;
 	long	n1;
 	long	n2;
 
@@ -52,32 +52,29 @@ int	duplicate_error(char **argv, int i)
 	return (0);
 }
 
-int error_check(char **argv, int argc)
+int	error_check(char **argv, int argc)
 {
-    char **a;
-    int i;
-    i= 0;
-   if(argc == 2)
-        {
+	char	**args;
+	int		i;
 
-            a = ft_split(argv[1], ' ');
-            if (!a || !a[0])
-                return (free_split(a), ft_error(),1);
-            while (a[i])
-            {
-                if (syntax_error(a[i]) || duplicate_error(a, i))
-				{
-					free_split(a);
-                    return ( ft_error(), 1);
-				}
-                i++;
-            }
-                free_split(a);
-        }
-        while (argv[++i] && argc != 2)
-        {
-            if (syntax_error(argv[i]) || duplicate_error(argv, i))
-                return (ft_error(), 1);
-        }
-        return (0);
+	i = 0;
+	if (argc == 2)
+	{
+		args = ft_split(argv[1], ' ');
+		if (!args || !args[0])
+			return (free_split(args), ft_error(), 1);
+		while (args[i])
+		{
+			if (syntax_error(args[i]) || duplicate_error(args, i))
+				return (free_split(args), ft_error(), 1);
+			i++;
+		}
+		free_split(args);
+	}
+	while (argv[++i] && argc != 2)
+	{
+		if (syntax_error(argv[i]) || duplicate_error(argv, i))
+			return (ft_error(), 1);
+	}
+	return (0);
 }

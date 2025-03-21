@@ -6,7 +6,7 @@
 /*   By: saskin <saskin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 19:20:33 by saskin            #+#    #+#             */
-/*   Updated: 2025/03/21 16:10:42 by saskin           ###   ########.fr       */
+/*   Updated: 2025/03/21 19:27:04 by saskin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_error(void);
 long	ft_atol(const char *s);
 int		syntax_error(char *s);
 int		duplicate_error(char **argv, int i);
-int	error_check(char **argv, int argc);
+int		error_check(char **argv, int argc);
 t_node	*init_stack(char **argv, int argc, t_node **a);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	print_stack(t_node *stack);
